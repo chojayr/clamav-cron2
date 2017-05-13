@@ -15,9 +15,9 @@ if [[ -x "./clamav_daemon.sh" && ("${MODE}" == "" || "${MODE}" == "av") ]]; then
 	fi
 	HOUR_OFF=$(expr 24 / ${DEF_UPD_FREQ})
 	REFERENCE="${ARBITRARY_OFFSET} */${HOUR_OFF} * * * root /etc/init.d/clamav-freshclam no-daemon 2>&1" # ARBITRARY MINUTE every HOUR
-        ./clamav_daemon.sh &;
         echo "${REFERENCE}"
         echo "${REFERENCE}" >> /etc/cron.d/scan_cron
+        ./clamav_daemon.sh &
 fi
 
 if [[ -x "./queue_process.sh" && ("${MODE}" == "" || "${MODE}" == "av") ]]; then
