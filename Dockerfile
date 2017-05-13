@@ -12,7 +12,8 @@ EXPOSE 22
 
 ## Clamav setup
 RUN apt-get update \
-  && apt-get install -y clamav-daemon clamav-freshclam 
+  && apt-get install -y clamav-daemon clamav-freshclam \
+  && freshclam
 
 ## Cleanup
 RUN apt-get clean \
